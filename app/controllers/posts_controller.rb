@@ -1,12 +1,40 @@
 class PostsController < ApplicationController
   def index
-    @content_first = "this is the first contents"
-    @content_second = "this is the second contents"
-  end
-
-  def new
+    @posts = Post.all
   end
 
   def show
+    @post = Post.find(params[:id])
   end
+
+  def new
+    @post = Post.new
+    @category = Category.all
+  end
+
+  def create
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to posts_path, :notice => "Your post has been saved"
+    else
+      render "new"
+    end
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
+  private
+    def post_params
+      params.require(:post).permit(:title, :body, :category_id, :author_id)
+    end
+    def category_params
+      params.require(:categories).permit(:name)
+    end
 end

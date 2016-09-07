@@ -1,5 +1,8 @@
 # README
 
+Progress:
+https://www.udemy.com/learn-ruby-on-rails-from-scratch/learn/v4/t/lecture/268817
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
